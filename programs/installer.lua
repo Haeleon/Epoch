@@ -1,7 +1,7 @@
 -- Setup and installer
 shell.run("cd /")
 shell.run("delete epoch/")
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/install.lua epoch/install.lua")
+shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/installer.lua epoch/installer.lua")
 
 -- Libraries/deps
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/self.lua epoch/self.lua")
@@ -10,3 +10,6 @@ shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/se
 -- Programs/commands
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fast_excavate.lua epoch/fast_excavate.lua")
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fill.lua epoch/fill.lua")
+
+shell.run("ls epoch")
+print("\n\nEpoch has been installed!\nRun epoch/installer.lua to update. Enjoy!")
