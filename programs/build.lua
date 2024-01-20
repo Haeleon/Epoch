@@ -4,7 +4,7 @@
 local build = {
 	build = function(blocks)
 
-		local self = require "epoch/self"
+		local self = require "/epoch/self"
 		self.track = true
         self.forced = true
 

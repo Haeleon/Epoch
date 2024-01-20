@@ -11,7 +11,7 @@ print(tArgs[1]);
 expect(1, tonumber(tArgs[1]), "number");
 expect(2, tonumber(tArgs[2]), "number", "nil");
 expect(3, tonumber(tArgs[3]), "number", "nil");
-local self = require "epoch/self"
+local self = require "/epoch/self"
 
 local depth = 0;
 local x = tonumber(tArgs[1])

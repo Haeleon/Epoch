@@ -1,7 +1,7 @@
 -- Command to mimic some functionality of a Minecraft /fill command
 
-local build = require "epoch/build";
-local self = require "epoch/self"
+local build = require "/epoch/build";
+local self = require "/epoch/self"
 
 local args = {...}
 local x1 = tonumber(args[1])

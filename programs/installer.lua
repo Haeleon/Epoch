@@ -11,5 +11,6 @@ shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/se
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fast_excavate.lua epoch/fast_excavate.lua")
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fill.lua epoch/fill.lua")
 
+print("\nInstalled successfully:")
 shell.run("ls epoch")
-print("\n\nEpoch has been installed!\nRun epoch/installer.lua to update. Enjoy!")
+print("\nEpoch has been installed!\nRun epoch/installer.lua to update. Enjoy!")
