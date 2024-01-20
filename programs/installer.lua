@@ -1,3 +1,5 @@
+-- Setup and installer
+shell.run("cd /")
 shell.run("delete epoch/")
 shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/install.lua epoch/install.lua")
 
