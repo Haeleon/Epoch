@@ -1,1 +1,0 @@
-shell.run("wget run https://raw.githubusercontent.com/Haeleon/Epoch/main/installer.lua")

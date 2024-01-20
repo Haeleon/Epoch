@@ -191,7 +191,7 @@ local self = {
      h = 0
  }
  
- self.resetTracking = function()
+ self.resetPosition = function()
      self.position.x = 0;
      self.position.z = 0;
      self.position.y = 0;
@@ -276,4 +276,3 @@ local self = {
  end
  
  return self
- 
