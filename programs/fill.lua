@@ -41,8 +41,8 @@ for y=1,y2-y1 do
 	end
 end
 
-self.goToPosition(x1, y1, z1, 0)
+self.goToPosition(x1, z1, y1, 0)
 self.resetPosition()
 build.build(blocks)
-self.goToPosition(-x1, 0, -z1, 0)
-self.goToPosition(-x1, -y1, -z1, 0)
+self.goToPosition(-x1, -z1, 0, 0)
+self.goToPosition(-x1, -z1, -y1, 0)
