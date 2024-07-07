@@ -33,6 +33,7 @@ end
 local function endProgram()
 	self.goToPosition(0, 0, 0, 0);
 	print("Finished!");
+	goto done
 end
 
 local function refuel()
@@ -65,7 +66,7 @@ local function main()
 			if cont then 
 				if facing then
 					self.turnLeft()
-					miningCycle()
+						miningCycle()
 					self.turnLeft()
 				else
 					self.turnRight()
@@ -92,3 +93,4 @@ local function main()
 end
 
 main()
+::done::
