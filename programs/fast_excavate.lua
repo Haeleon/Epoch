@@ -33,7 +33,6 @@ end
 local function endProgram()
 	self.goToPosition(0, 0, 0, 0);
 	print("Finished!");
-	goto done
 end
 
 local function refuel()
@@ -41,7 +40,7 @@ local function refuel()
 end
 
 local function miningCycle()
-		if not self.forward() then endProgram() end
+		if not self.forward() then goto done end
 		if self.getItemCount(15) > 0 then 
 			if self.back() then unload() self.forward() else unload() end
 		end
@@ -89,8 +88,8 @@ local function main()
 --		facing = not facing
 		cont = false;
 	end
+	::done::
 	endProgram()
 end
 
 main()
-::done::
