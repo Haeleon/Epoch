@@ -20,7 +20,6 @@ local maxDepth = tonumber(tArgs[3]) or 1000000
 local facing = false;
 
 local function unload()
-	self.back()
 	local bookmark = self.getPosition();
 	self.goToPosition(0, 0, 0, 2);
 	for i=1,16 do
@@ -29,7 +28,6 @@ local function unload()
 	end
 	self.select(1);
 	self.goToPosition(bookmark);
-	self.forward()
 end
 
 local function endProgram()
@@ -43,7 +41,9 @@ end
 
 local function miningCycle()
 		if not self.forward() then endProgram() end
-		if self.getItemCount(15) > 0 then unload() end
+		if self.getItemCount(15) > 0 then 
+			if self.back() then unload() self.forward() else unload() end
+		end
 		self.digUp();
 		if self.getItemCount(15) > 0 then unload() end
 		self.digDown();
