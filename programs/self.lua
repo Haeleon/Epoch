@@ -229,13 +229,6 @@ local self = {
          self.position.h
  end
 
- self.getXZYH = function()
-     return self.position.x,
-         self.position.z,
-         self.position.y,
-         self.position.h
- end
-
  self.goToPosition = function(posOrX, z, y, h)
      local pos = {}
      expect(1, posOrX, "number", "table")
