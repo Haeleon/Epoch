@@ -1,4 +1,4 @@
--- self library for turtles for enhanced movement and abstracted turtle self-management
+-- This library facilitates intelligent movement and abstracted turtle self-management
 
 local self = {
     craft = turtle.craft,
@@ -221,7 +221,21 @@ local self = {
          h = self.position.h,
      }
  end
- 
+
+ self.getXYZH = function()
+     return self.position.x,
+         self.position.y,
+         self.position.z,
+         self.position.h
+ end
+
+ self.getXZYH = function()
+     return self.position.x,
+         self.position.z,
+         self.position.y,
+         self.position.h
+ end
+
  self.goToPosition = function(posOrX, z, y, h)
      local pos = {}
      expect(1, posOrX, "number", "table")
