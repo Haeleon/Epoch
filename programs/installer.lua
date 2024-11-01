@@ -29,6 +29,9 @@ local libraries = {
 shell.run("cd /")
 shell.run("delete epoch/")
 
+-- Get latest commit SHA for version checking
+fs.open("/epoch/sha.txt", "w").write(textutils.unserializeJSON(http.get("https://api.github.com/repos/Haeleon/Epoch/commits/main").readAll()).commit.tree.sha)
+
 for k, v in pairs(libraries) do
     shell.run("wget "..libraryURL..k..".lua epoch/"..k..".lua")
 end
