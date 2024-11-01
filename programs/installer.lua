@@ -1,16 +1,58 @@
--- Setup and installer
+-- WIP new installer for Epoch with dependency management and command aliasing
+
+local programURL = "https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/"
+local programs = {
+    installer={
+        args=nil,
+        libdeps=nil,
+    },
+    fast_excavate={
+        args={"#width", "<#length>"},
+        libdeps={"self"},
+    },
+    fill={
+        args={"#x1", "#y1", "#z1", "#x2", "#y2", "#z2", "'blockname'", "<'replace|hollow|frame|corners'>"},
+        libdeps=nil,
+    },
+}
+
+local libraryURL = "https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/"
+local libraries = {
+    build={
+        libdeps=nil,
+    },
+    self={
+        libdeps=nil,
+    }
+}
+
 shell.run("cd /")
 shell.run("delete epoch/")
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/installer.lua epoch/installer.lua")
 
--- Libraries/deps
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/self.lua epoch/self.lua")
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/build.lua epoch/build.lua")
+for k, v in pairs(libraries) do
+    shell.run("wget "..libraryURL..k..".lua epoch/"..k..".lua")
+end
 
--- Programs/commands
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fast_excavate.lua epoch/fast_excavate.lua")
-shell.run("wget https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/fill.lua epoch/fill.lua")
+for k, v in pairs(programs) do
+    shell.run("wget "..programURL..k..".lua epoch/"..k..".lua")
 
-print("\nInstalled successfully:")
-shell.run("ls epoch")
-print("\nEpoch has been installed!\nRun epoch/installer.lua to update. Enjoy!")
+    shell.setAlias(k, "epoch/"..k..".lua")
+
+    if v.args then
+    shell.setCompletionFunction(
+    "epoch/"..k..".lua",
+        function(_, i, c)
+            local n = i
+            if #c < 1 then
+                return {
+                    table.concat(v.args, " ", n)
+                }
+            end
+            if n < #v.args then
+                return {" "}
+            end
+        end
+    )
+
+    end
+end
