@@ -60,4 +60,7 @@ for k, v in pairs(programs) do
     end
 end
 
-fs.open("startup.lua", "w").seek("set", 0).write("shell.run('/epoch/startup.lua')").close()
+local f = fs.open("startup.lua", "w")
+f.seek("set", 0)
+f.write("shell.run('/epoch/startup.lua')")
+f.close()
