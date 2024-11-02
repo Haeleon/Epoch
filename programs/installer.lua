@@ -6,6 +6,10 @@ local programs = {
         args=nil,
         libdeps=nil,
     },
+    update={
+        args=nil,
+        libdeps=nil,
+    },
     fast_excavate={
         args={"#width", "<#length>"},
         libdeps={"self"},
@@ -62,5 +66,5 @@ end
 
 local f = fs.open("startup.lua", "w")
 f.seek("set", 0)
-f.write("shell.run('/epoch/startup.lua')")
+f.write("shell.run('/epoch/update.lua')")
 f.close()
