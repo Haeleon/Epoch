@@ -1,0 +1,9 @@
+{
+    "Lua.diagnostics.globals": [
+        "turtle"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-global",
+        "undefined-field"
+    ]
+}

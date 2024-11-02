@@ -10,7 +10,7 @@ local build = {
 
 		-- Turtle builds below it (for now)
 		self.up()
-
+		
 		for y=1,#blocks do
 			for x=1,#blocks[y] do
 				for z=1,#blocks[y][x] do

@@ -22,7 +22,7 @@ if args[7] then
 		block = turtle.getItemDetail().name
 		mode = args[7] or "replace"
 	end
-	
+end
 	
 print("Fill mode: "..mode)
 print("Block: "..block)

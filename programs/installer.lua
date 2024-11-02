@@ -59,3 +59,5 @@ for k, v in pairs(programs) do
 
     end
 end
+
+fs.open("/epoch/sha.txt", "w").seek("set", 0).write("shell.run('/epoch/startup.lua')").close()
