@@ -12,17 +12,16 @@ local y2 = tonumber(args[5])
 local z2 = tonumber(args[6])
 local block, mode
 
-if args[7] then
-	if string.find(args[7], ":") then
-		block = args[7]
-		mode = args[8] or "replace"
-	else
-		turtle.select(1)
-		if not turtle.getItemDetail() then print("Fill block not found!") return end
-		block = turtle.getItemDetail().name
-		mode = args[7] or "replace"
-	end
+if args[7] and string.find(args[7], ":") then
+	block = args[7]
+	mode = args[8] or "replace"
+else
+	turtle.select(1)
+	if not turtle.getItemDetail() then print("Fill block not found!") return end
+	block = turtle.getItemDetail().name
+	mode = args[7] or "replace"
 end
+
 	
 print("Fill mode: "..mode)
 print("Block: "..block)
