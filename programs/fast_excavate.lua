@@ -1,4 +1,4 @@
--- fast_excavate v1.0.3
+-- fast_excavate v1.0.4
 
 if not turtle then
     print("This program requires a turtle")
@@ -20,19 +20,41 @@ local maxDepth = tonumber(tArgs[3]) or 1000000
 local facing = false;
 
 local function unload()
-    local bookmark = self.getPosition();
-    self.goToPosition(0, 0, 0, 2);
+    local bookmark = self.getPosition()
+    self.goToPosition(0, 0, 0, 2)
     for i=1,16 do
-        self.select(i);
-        self.drop(64);
+        self.select(i)
+        self.drop(64)
     end
-    self.select(1);
-    self.goToPosition(bookmark);
+    self.select(1)
+    self.goToPosition(bookmark)
+end
+
+local function chcekRefuel()
+    local pos = self.getPosition();
+    local limit = pos.x + math.abs(pos.y) + pos.z + 20;
+
+    if self.getFuelLevel() < limit then
+        for i=1,16 do
+            self.select(i)
+            self.refuel(64)
+        end            
+    end
+
+    if self.getFuelLevel() < limit then
+        self.goToPosition(0, 0, 0, 2)
+        self.select(1)
+        print("Waiting for fuel...")
+        while self.getFuelLevel() < limit*2 do
+            self.refuel(64)
+        end
+        self.goToPosition(pos)
+    end
 end
 
 local function endProgram()
-    self.goToPosition(0, 0, 0, 0);
-    print("Finished!");
+    self.goToPosition(0, 0, 0, 0)
+    print("Finished!")
 end
 
 local function refuel()
@@ -40,6 +62,8 @@ local function refuel()
 end
 
 local function miningCycle()
+        chcekRefuel()
+
         if not self.forward() then return false end
         if self.getItemCount(15) > 0 then 
             if self.back() then unload() self.forward() else unload() end
