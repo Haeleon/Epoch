@@ -18,9 +18,16 @@ local programs = {
         args={"#x1", "#y1", "#z1", "#x2", "#y2", "#z2", "'blockname'", "<'replace|hollow|frame|corners'>"},
         libdeps=nil,
     },
+    startup={
+        args=nil,
+        libdeps=nil,
+    },
+    toolbar={
+        libdeps={"self"},
+    }
 }
 
-local libraryURL = "https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/"
+local libraryURL = "https://raw.githubusercontent.com/Haeleon/Epoch/main/libraries/"
 local libraries = {
     build={
         libdeps=nil,
