@@ -2,10 +2,10 @@
 
 local programURL = "https://raw.githubusercontent.com/Haeleon/Epoch/main/programs/"
 local programs = {
-    installer={
-        args=nil,
-        libdeps=nil,
-    },
+    -- installer={
+    --     args=nil,
+    --     libdeps=nil,
+    -- },
     update={
         args=nil,
         libdeps=nil,

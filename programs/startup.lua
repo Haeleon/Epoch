@@ -9,4 +9,4 @@ if _G.isEpochHost then
 end
 
 shell.run('/epoch/update.lua')
-shell.run('toolbar.lua')
+shell.run('/epoch/toolbar.lua')
