@@ -18,10 +18,6 @@ local programs = {
         args={"#x1", "#y1", "#z1", "#x2", "#y2", "#z2", "'blockname'", "<'replace|hollow|frame|corners'>"},
         libdeps=nil,
     },
-    startup={
-        args=nil,
-        libdeps=nil,
-    },
     toolbar={
         libdeps={"self"},
     }
@@ -39,6 +35,7 @@ local libraries = {
 
 shell.run("cd /")
 shell.run("delete epoch/")
+shell.run("delete startup.lua")
 
 -- Get latest commit SHA for version checking
 fs.open("/epoch/sha.txt", "w").write(textutils.unserializeJSON(http.get("https://api.github.com/repos/Haeleon/Epoch/commits/main").readAll()).commit.tree.sha)
@@ -71,7 +68,9 @@ for k, v in pairs(programs) do
     end
 end
 
-local f = fs.open("startup.lua", "w")
-f.seek("set", 0)
-f.write("shell.run('/epoch/update.lua')")
-f.close()
+shell.run("wget "..programURL.."startup.lua startup.lua")
+
+-- local f = fs.open("startup.lua", "w")
+-- f.seek("set", 0)
+-- f.write("shell.run('/epoch/startup.lua')")
+-- f.close()
