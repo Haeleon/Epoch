@@ -70,6 +70,7 @@ end
 
 shell.run("wget "..programURL.."startup.lua startup.lua")
 
+os.reboot()
 -- local f = fs.open("startup.lua", "w")
 -- f.seek("set", 0)
 -- f.write("shell.run('/epoch/startup.lua')")
